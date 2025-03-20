@@ -3,16 +3,17 @@ import java.util.ArrayList;
 
 public class gabicontinhas{
     public static void main(String[] args) {
-    int op=0, quantPlanta=0;
+    int op=0, quantPlanta=0, dia=0, mes=0;
     float valorPlanta=0, total=0, dinheiroCliente=0, totalDesconto = 0, desconto = 0;
+    int vendas[][] = new int[12][31];
 
     ArrayList<Float> valoresPlantas = new ArrayList<>();
     ArrayList<Integer> quantidadesPlantas = new ArrayList<>();
     ArrayList<Float> descontoCliente = new ArrayList<>();
 
     Scanner scanner = new Scanner(System.in);
-    while(op != 4){
-    System.out.println("\n\nMENU DE CONTAS \n[1]Calcular preço total \n[2]Calcular troco \n[3]Relatório de vendas \n[4]Sair");
+    while(op != 5){
+    System.out.println("\n\nMENU DE CONTAS \n[1]Calcular preço total \n[2]Calcular troco \n[3]Relatório de vendas \n[4]Consultar vendas do dia escolhido \n[5]Sair");
     op = scanner.nextInt();
     
     if (op == 1){
@@ -70,6 +71,18 @@ public class gabicontinhas{
 
         System.out.println("Total de desconto dado: R$" + somaDescontos);
     }
+    if (op==4){
+        System.out.println("Insira o dia: ");
+        dia = scanner.nextInt();
+
+        System.out.println("Insira o mes");
+        mes = scanner.nextInt();
+
+        vendas[mes - 1][dia - 1] += quantPlanta;
+
+        System.out.println("Total de vendas em " + dia + "/" + mes + ": " + vendas[mes - 1][dia - 1] + " plantas");
+        
+     }
     }
     }
-}
+    }
